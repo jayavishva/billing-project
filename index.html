@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu & Billing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Restaurant Menu</h1>
+        <a href="admin.html" class="admin-link">Admin Panel</a>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="menu-section">
+                <h2>Menu Items</h2>
+                <div class="menu-grid" id="menuGrid">
+                    <!-- Menu items will be dynamically loaded here -->
+                </div>
+            </section>
+
+            <aside class="cart-section">
+                <h2>Your Cart</h2>
+                <div class="cart-items" id="cartItems">
+                    <p class="empty-cart">Your cart is empty</p>
+                </div>
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">₹0</span>
+                    </div>
+                    <div class="cart-actions">
+                        <button id="payNowBtn" class="btn btn-primary">Pay Now</button>
+                        <button id="printBillBtn" class="btn btn-secondary">Print Bill</button>
+                        <button id="clearCartBtn" class="btn btn-danger">Clear Cart</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Payment QR Code</h2>
+            <div id="qrcode"></div>
+            <div class="bill-details" id="billDetails"></div>
+            <button id="closeModalBtn" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <!-- Print Bill Section (hidden, only for printing) -->
+    <div id="printBill" class="print-bill">
+        <div class="bill-header">
+            <h2>Restaurant Bill</h2>
+            <p id="printDate"></p>
+            <p id="printTransactionId"></p>
+        </div>
+        <div class="bill-items" id="printItems"></div>
+        <div class="bill-summary" id="printSummary"></div>
+        <div class="bill-footer">
+            <p>Thank you for your visit!</p>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
